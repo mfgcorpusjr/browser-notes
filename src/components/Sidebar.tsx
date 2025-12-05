@@ -7,6 +7,7 @@ export default function Sidebar() {
       <CardHeader>
         <CardTitle>My Notes</CardTitle>
       </CardHeader>
+
       <CardContent>
         <NoteList />
       </CardContent>

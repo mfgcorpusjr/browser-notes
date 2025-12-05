@@ -6,6 +6,7 @@ export default function Content() {
       <CardHeader>
         <CardTitle>Content</CardTitle>
       </CardHeader>
+
       <CardContent></CardContent>
     </Card>
   );

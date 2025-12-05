@@ -37,6 +37,7 @@ export default function NoteListItem({ note }: NoteListItemProps) {
         {note.content && (
           <span className="text-xs text-muted-foreground">{note.content}</span>
         )}
+
         <span className="text-xs text-muted-foreground">
           {formatDate(note.createdAt)}
         </span>
