@@ -1,4 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import NoteList from "@/components/NoteList";
 
 export default function Sidebar() {
   return (
@@ -6,7 +7,9 @@ export default function Sidebar() {
       <CardHeader>
         <CardTitle>My Notes</CardTitle>
       </CardHeader>
-      <CardContent>Sidebar</CardContent>
+      <CardContent>
+        <NoteList />
+      </CardContent>
     </Card>
   );
 }

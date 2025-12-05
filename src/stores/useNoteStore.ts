@@ -9,6 +9,7 @@ type NoteStore = {
   isEditing?: boolean;
 
   createNote: () => void;
+  selectNote: (note: Note) => void;
 };
 
 const useNoteStore = create<NoteStore>((set) => ({
@@ -26,6 +27,10 @@ const useNoteStore = create<NoteStore>((set) => ({
       selectedNote: note,
       isEditing: true,
     }));
+  },
+
+  selectNote: (note: Note) => {
+    set({ selectedNote: note });
   },
 }));
 
