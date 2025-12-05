@@ -1,13 +1,17 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import Placeholder from "@/components/Placeholder";
+
+import useNoteStore from "@/stores/useNoteStore";
 
 export default function Content() {
+  const selectedNote = useNoteStore((state) => state.selectedNote);
+  const isEditing = useNoteStore((state) => state.isEditing);
+
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Content</CardTitle>
-      </CardHeader>
-
-      <CardContent></CardContent>
+      <CardContent>
+        {!selectedNote && !isEditing && <Placeholder />}
+      </CardContent>
     </Card>
   );
 }
