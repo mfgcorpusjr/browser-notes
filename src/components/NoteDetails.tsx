@@ -1,3 +1,5 @@
+import { ScrollArea } from "@/components/ui/scroll-area";
+
 import useNoteStore from "@/stores/useNoteStore";
 import { formatDate } from "@/utils";
 
@@ -7,7 +9,7 @@ export default function NoteDetails() {
   if (!selectedNote) return;
 
   return (
-    <section className="md:h-[calc(100vh-200px)]">
+    <ScrollArea className="md:h-[calc(100vh-152px)] pr-2">
       <h3 className="font-semibold mb-2">{selectedNote.title}</h3>
 
       <div className="text-sm text-muted-foreground mb-8">
@@ -17,6 +19,6 @@ export default function NoteDetails() {
       <div className="text-sm text-muted-foreground">
         {selectedNote.content}
       </div>
-    </section>
+    </ScrollArea>
   );
 }
