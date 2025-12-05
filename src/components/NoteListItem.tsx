@@ -33,16 +33,16 @@ export default function NoteListItem({ note }: NoteListItemProps) {
       onClick={() => selectNote(note)}
     >
       <div className="flex-1 flex flex-col gap-1">
-        <span className="text-sm font-semibold line-clamp-1">{note.title}</span>
+        <h3 className="text-sm font-semibold line-clamp-1">{note.title}</h3>
         {note.content && (
-          <span className="text-xs text-muted-foreground line-clamp-1">
+          <div className="text-xs text-muted-foreground line-clamp-1">
             {note.content}
-          </span>
+          </div>
         )}
 
-        <span className="text-xs text-muted-foreground">
+        <div className="text-xs text-muted-foreground">
           {formatDate(note.createdAt)}
-        </span>
+        </div>
       </div>
 
       <Button
