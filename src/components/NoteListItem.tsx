@@ -1,3 +1,4 @@
+import { type MouseEvent } from "react";
 import clsx from "clsx";
 import { LucideTrash2 } from "lucide-react";
 
@@ -14,6 +15,12 @@ type NoteListItemProps = {
 export default function NoteListItem({ note }: NoteListItemProps) {
   const selectedNote = useNoteStore((state) => state.selectedNote);
   const selectNote = useNoteStore((state) => state.selectNote);
+  const deleteNote = useNoteStore((state) => state.deleteNote);
+
+  const handleDeleteNote = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    deleteNote(note);
+  };
 
   return (
     <div
@@ -39,6 +46,7 @@ export default function NoteListItem({ note }: NoteListItemProps) {
         variant="outline"
         size="icon-sm"
         className="hover:text-destructive cursor-pointer"
+        onClick={handleDeleteNote}
       >
         <LucideTrash2 />
       </Button>

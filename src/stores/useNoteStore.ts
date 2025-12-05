@@ -10,6 +10,7 @@ type NoteStore = {
 
   createNote: () => void;
   selectNote: (note: Note) => void;
+  deleteNote: (note: Note) => void;
 };
 
 const useNoteStore = create<NoteStore>((set) => ({
@@ -31,6 +32,15 @@ const useNoteStore = create<NoteStore>((set) => ({
 
   selectNote: (note: Note) => {
     set({ selectedNote: note });
+  },
+
+  deleteNote: (note: Note) => {
+    set((state) => ({
+      notes: state.notes.filter((n) => n.id !== note.id),
+      selectedNote:
+        state.selectedNote?.id === note.id ? undefined : state.selectedNote,
+      isEditing: state.selectedNote?.id === note.id ? false : state.isEditing,
+    }));
   },
 }));
 
